@@ -1,0 +1,11 @@
+if(DEFINED ENV{MY_ENV_VERSION})
+    MESSAGE(WARNING "Using MY_ENV_VERSION from environment: $ENV{MY_ENV_VERSION}")
+    if (DEFINED MY_VERSION)
+        unset(MY_VERSION)
+    endif()
+    set(MY_VERSION $ENV{MY_ENV_VERSION} CACHE STRING "Specify a version string for the application" FORCE)
+else()
+    MESSAGE(WARNING "MY_ENV_VERSION not set in environment.")
+endif()
+configure_file(${CMAKE_CURRENT_LIST_DIR}/version.h.in ${CMAKE_CURRENT_LIST_DIR}/version.h @ONLY)
+
