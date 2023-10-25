@@ -31,7 +31,7 @@ jobs:
       run: cat app/src/main/cpp/version.h
 
     - name: Build with MY_ENV_VERSION=2
-      run: MY_ENV_VERSION=1 ./gradlew assemble
+      run: MY_ENV_VERSION=2 ./gradlew assemble
 
     - name: Dump generated version.h
       run: cat app/src/main/cpp/version.h
